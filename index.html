@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>My Library App</title>
+    
+</head>
+<body>
+    <!-- Header section with main title -->
+    <header>
+        <div>
+            <div class="logoSet">
+                <span class="logoBar"></span>
+                <h1>
+                    <span class="logoTop">Welcome to Audio</span>
+                     Library
+                </h1>
+            </div>
+            <span class="logoButtonBar"></span>
+        </div>
+        
+        <p>Start your reading journey</p>
+        <button class="add-book-btn">Add Book</button>
+        
+    </header>
+
+    <!-- Main content area -->
+    <main>
+        <div class="explore-section">
+            <h2>Books Explore</h2>
+            <div class="descriptionMain">
+                <div class="descriptionImage">
+                    <div class="carousel">
+                        <div class="carousel-images">
+                          <img src="./images/self-piano.jpg" alt="Image 1" class="carousel-item">
+                          <img src="./images/background.jpg" alt="Image 2" class="carousel-item">
+                          
+                        </div>
+                        <button class="prev" onclick="moveImage(-1)">&#10094;</button>
+                        <button class="next" onclick="moveImage(1)">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form section for adding new books -->
+        <section class="add-book-section">
+            <h2>Add New Book</h2>
+            <form id="book-form">
+                <!-- Book title input -->
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+
+                <!-- Author input -->
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+
+                <!-- Pages input -->
+                <div class="form-group">
+                    <label for="pages">Pages</label>
+                    <input type="number" id="pages" name="pages" required>
+                </div>
+
+                <!-- Read status checkbox -->
+                <div class="form-group">
+                    <label for="read">
+                        <input type="checkbox" id="read" name="read">
+                        I have read this book
+                    </label>
+                </div>
+
+                <button class="submit-btn" type="submit">Add Book</button>
+            </form>
+        </section>
+
+        <!-- Library display section -->
+        <section class="library-section">
+            <h2>My Books</h2>
+            <!-- Container for book cards -->
+            <div id="books-container" class="books-grid">
+                <!-- Book cards will be added here dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+        <p>My Library App - Created with ❤️</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
