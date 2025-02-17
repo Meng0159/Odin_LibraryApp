@@ -1,0 +1,7 @@
+testing_library_code/
+*.log
+node_modules
+dist
+src/images/
+webpack.config.js
+data/
