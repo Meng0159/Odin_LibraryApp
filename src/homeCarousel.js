@@ -1,7 +1,7 @@
 // First, import the recipes data
 import recipes from '../data/recipes.json';
 
-export function loadHome() {
+export function loadCarousel() {
     const content = document.getElementById('welcome-content');
     
     // Create elements
@@ -13,10 +13,9 @@ export function loadHome() {
     text.textContent = "Discover delicious and healthy recipes to inspire your cooking. Our curated collection will help you create nutritious meals effortlessly.";
     text.classList.add("text-lg", "text-center", "mt-2", "px-4");
     
-    const image = document.createElement('img');
-    image.src = "";
-    image.alt = "Spin Recipes";
-    image.classList.add("mx-auto", "mt-4", "rounded-lg", "w-3/4", "shadow-lg", "width-40");
+
+    // image.alt = "Spin Recipes";
+    // image.classList.add("mx-auto", "mt-4", "rounded-lg", "w-3/4", "shadow-lg", "width-40");
     
     // Create a outer container for carousel and recipe details
     const carouselAndRecipeContainer = document.createElement('div');
@@ -24,7 +23,7 @@ export function loadHome() {
         "flex",
         "flex-col",
         "md:flex-row",
-        "gap-6",
+        "gap-10",
         "mt-6",
         "px-4",
         "w-full",
@@ -46,7 +45,7 @@ export function loadHome() {
     const carouselImagesHTML = recipes.map((recipe, index) => `
     <img src="${recipe['img-url']}" 
          alt="${recipe.title}" 
-         class="carousel-item w-full h-full object-cover"
+         class="carousel-item w-full h-full rounded-lg object-cover"
          data-index="${index}"
     >
     `).join('');
@@ -72,7 +71,7 @@ export function loadHome() {
         "p-6"
     );
 
-    // Function to update recipe details
+    // Function to update recipe details for carousel
     function updateRecipeDetails(index) {
         const recipe = recipes[index];
         recipeDetails.innerHTML = `
@@ -81,12 +80,12 @@ export function loadHome() {
         
         <div class="mb-4">
             <div class="flex items-center gap-4 mb-2">
-                <span>🕒 ${recipe["recipe-meta"].time}</span>
-                <span>👩🏼‍🍳 Difficulty: ${recipe["recipe-meta"].level}</span>
+                <span class="time-meta">${recipe["recipe-meta"].time}</span>
+                <span class="level-meta" data-level="${recipe["recipe-meta"].level.toLowerCase()}">${recipe["recipe-meta"].level}</span>
             </div>
             <div class="flex flex-wrap gap-2">
                 ${recipe.tags.map(tag => `
-                    <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-sm">
+                    <span class="meta-tags">
                         ${tag}
                     </span>
                 `).join('')}

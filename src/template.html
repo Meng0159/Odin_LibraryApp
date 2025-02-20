@@ -11,75 +11,20 @@
     <!-- Navigation -->
     <!-- Main Content -->
     <main>
-        <div id="welcome-content"></div>
-        <!-- Add Book Section -->
-        <section class="add-book-section">
-            <h2 class="">My Reading List</h2>
-            <form id="book-form">
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" required>
-                </div>
-                <div class="form-group">
-                    <label for="author">Author</label>
-                    <input type="text" id="author" required>
-                </div>
-                <div class="form-group">
-                    <label for="pages">Pages</label>
-                    <input type="number" id="pages" required>
-                </div>
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" id="read"> I have read this book
-                    </label>
-                </div>
-                <button type="submit">Add Book</button>
-            </form>
-        </section>
+        <section class="px-16" id="welcome-content"></section>
 
         <!-- Library Section -->
-        <section class="library-section">
-            <h2>My Books</h2>
-            <div id="books-container" class="books-grid">
-                <!-- Books will be inserted dynamically -->
+        <section id="recipe-cards-section">
+            <div id="recipes-cards-div">
+                <!-- Recipes will be inserted dynamically -->
             </div>
         </section>
     </main>
 
-    <!-- Tic Tac Toe Section -->
-    <section class="play-game-section">
+    <!-- Game Section -->
+    <section id="play-game-section">
         <h2>Tic Tac Toe</h2>
-        <dialog id="input-dialog">
-            <form>
-                <label for="player1">Player X:</label>
-                <input type="text" id="input-player1-name">
-
-                <label for="player2">Player O:</label>
-                <input type="text" id="input-player2-name">
-
-                <button type="submit" id="save-setup-btn">Save</button>
-            </form>
-        </dialog>
-
-        <div class="board-game-container">
-            <h2 class="player"></h2>
-            <!-- display the winner -->
-            <div class="player-points">
-                <h3>
-                    <span id="player1-name">Player 1: </span>
-                    <span id="player1-points">0</span>
-                </h3>
-                <h3>
-                    <span id="player2-name">Player 2: </span>
-                    <span id="player2-points">0</span>
-                </h3>
-            </div>
-            <div>
-                <button id="start-button">START</button>
-                <button id="restart-button">RESTART</button>
-            </div>
-            <div id="game-board">
-            </div>
+        <div id="game-container">
         </div>
     </section>
 

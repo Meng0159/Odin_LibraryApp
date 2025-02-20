@@ -1,32 +1,22 @@
 import "./style.css";
-import {ScreenController} from "./game.js";
-import { addBookToLibrary, updateLibraryDisplay } from "./library.js";
-import { loadHome } from "./home";
 import { loadNavBar } from "./navBar.js";
+import { loadCarousel } from "./homeCarousel";
+import { loadRecentRecipes } from "./recentRecipesCards";
+import { displayGameController } from "./gameSection/gameBoard.js";
 
 
-// Event Listeners
 document.addEventListener("DOMContentLoaded", () => {
     loadNavBar();
-    loadHome();
-    // updateLibraryDisplay();
+    loadCarousel();
+    loadRecentRecipes();
     startGameBoard();
 
 });
 
-// Add Book Form
-document.getElementById("book-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const title = document.getElementById("title").value;
-    const author = document.getElementById("author").value;
-    const pages = document.getElementById("pages").value;
-    const read = document.getElementById("read").checked;
+function clearSotrage() {
+    localStorage.clear();
+}
 
-    addBookToLibrary(title, author, pages, read);
-});
-
-// Game Board Generation
-// Game Board Generation
 function startGameBoard() {
-    ScreenController();
+    displayGameController.initialize();
 };

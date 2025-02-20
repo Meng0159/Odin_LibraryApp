@@ -1,3 +1,5 @@
+import { addRecipeForm } from './addRecipeForm';
+
 export function loadNavBar() {
     const body = document.body;
     
@@ -26,17 +28,33 @@ export function loadNavBar() {
         <div>
             <nav class="p-2 text-center">
                 <a href="#home" class="px-4">Home</a>
+                <a href="#about" class="px-4">About</a>
                 <a href="#recipes" class="px-4">Recipes</a>
                 <a href="#game" class="px-4">Game</a>
-                <a href="#about" class="px-4">About</a>
+                
             </nav>
         </div>
-        <div>
-            <button id="add-book-btn" class="bg-rose-200 hover:bg-blue-300 text-indigo-950 px-2 py-2 rounded">+ Recipe</button>
-            <button id="play-game-btn">Play</button>
+        <div class="flex justify-center gap-4">
+            <button id="add-recipe-btn" class="w-24 bg-secondary hover:bg-general text-txcolor px-2 py-2 rounded">+ Recipe</button>
+            <button id="play-game-btn" class="w-16 relative px-2 rounded">
+                <span class="absolute inset-[1px] border-4 border-accent  hover:border-general rounded-lg"></span>
+                Play
+            </button>
         </div>
-    `;
+        `;
     
     body.prepend(navContainer);
     body.prepend(header);
+
+    // Add click event listener
+    document.getElementById('add-recipe-btn').addEventListener('click', () => {
+        addRecipeForm();
+    });
+
+    // Add click event listener for game button to mve to game section
+    document.getElementById('play-game-btn').addEventListener('click', () => {
+        document.getElementById('play-game-section').scrollIntoView({ behavior: 'smooth' });
+    });
+
+
 }

@@ -5,6 +5,46 @@
 @tailwind components;
 @tailwind utilities;
 
+.time-meta, .level-meta {
+    @apply flex items-center gap-2 text-gray-600;
+}
+
+/* Add icon before time and level*/
+.time-meta::before {
+    content: "🕒";
+    margin-right: 0.25rem;
+}
+
+.level-meta::before {
+    content: "👩🏼‍🍳";
+    margin-right: 0.25rem;
+}
+
+/* Add stars after level based on difficulty */
+
+.level-meta[data-level="easy"]::after {
+    margin-left: 0.25rem;
+    content: "★";
+    color: #EAB308; /* text-green-500 */
+}
+
+.level-meta[data-level="intermediate"]::after {
+    margin-left: 0.25rem;
+    content: "★★★";
+    color: #EAB308; /* text-yellow-500 */
+}
+
+.level-meta[data-level="advanced"]::after {
+    margin-left: 0.25rem;
+    content: "★★★★★";
+    color: #e26641; /* text-red-500 */
+}
+
+
+.meta-tags {
+    @apply inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 mr-2 mb-2;
+}
+
 /* Game Board */
 
 #game-board {
@@ -14,6 +54,7 @@
     gap: 5px;
     margin-top: 20px;
 }
+
 
 .cell {
     width: 100px;
